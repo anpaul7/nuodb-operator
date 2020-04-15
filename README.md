@@ -6,7 +6,7 @@
 
 A Kubernetes Operator that automates the packaging, provisioning, and managing of operational tasks for Kubernetes containerized applications. By default the NuoDB Kubernetes Operator deploys the NuoDB with Community Edition (CE) capability in the following tested and verified Kubernetes distributions:
 
-* Red Hat OpenShift 3.11, 4.x
+* Red Hat OpenShift 4.x
   * On-prem or OpenShift supported public cloud platforms
 * Google Cloud Platform (GCP)
   * GKE managed Kubernetes
@@ -25,7 +25,7 @@ The NuoDB Operator also supports deploying NuoDB with either ephemeral or persis
 ## NuoDB Operator Version support
 For a list of supported NuoDB Operator releases and where to download, click the `Releases` tab above. To enable automated notification of new releases, click the Watch button above and subscribe to the Releases Only selection. 
 
-**Note:** The master branch may contain changes not fully tested and represents a work-in-progress view of the next planned release. 
+#### **Note: The master branch may contain changes that are not fully tested and/or compatible with the released Operators. The master branch documenation, steps, and procedures (on this page) represent a work-in-progress view of the next planned release.** 
 
 ## About the NuoDB Community Edition Capability
 The NuoDB Community Edition (CE) capability is a full featured, but limits the database to one Storage Manager (SM) and three Transaction Engine (TE) processes. The Community Edition is free of charge and allows you to self-evaluate NuoDB at your own pace. The NuoDB Community Edition (CE) will allow first time users to experience all the benefits and value points of NuoDB including: 
@@ -82,15 +82,15 @@ In our verification tests, we regularly verify the samples workloads outlined on
 Please use this as a guideline for a minimal configuration when you create your cluster. To run larger SQL workloads using the included YCSB sample application, adjust node CPU and Memory upwards as required. To determine resources used, monitor your NuoDB database process resource consumption using the NuoDB Insights visual montioring tool. 
 
 ### 2. Create environment variables
-
 ```
 export OPERATOR_NAMESPACE=nuodb
 export NUODB_OPERATOR_VERSION=2.0.3           --confirm you set the correction NuoDB Operator version here.
 ```
-### 3. Clone a copy of the NuoDB Operator release branch or download from the Releases tab a release zip file and unpack 
+
+### 3. Download the latest NuoDB Operator release zip file from the `Releases` tab and unzip 
 For example, in your home or working directory, run:
 
-`git clone -b "rel-2.0.3" https://github.com/nuodb/nuodb-operator`
+`unzip nuodb-operator-2.0.3.zip`
 
 ### 4. Create the "nuodb" project/namespace (if not already created)
 
