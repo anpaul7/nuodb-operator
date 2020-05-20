@@ -15,7 +15,7 @@ The NuoDB Operator also supports deploying NuoDB with either ephemeral or persis
 ## NuoDB Operator Version support
 For a list of supported NuoDB Operator releases and where to download, click the `Releases` tab above. To enable automated notification of new releases, click the Watch button above and subscribe to the Releases Only selection. 
 
-#### **NOTE: The master branch may contain changes that are not fully tested and/or compatible with the released Operators. The master branch documentation, steps, and procedures represent a work-in-progress view of the next planned release.** 
+#### **NOTE: The master branch may contain changes that are not compatible with the released Operators. The master branch documentation, steps, and procedures represent a work-in-progress view of the next planned release.** The current master branch document is compatible with NuoDB Operator v2.3.x.
 
 ## About the NuoDB Community Edition Capability
 The NuoDB Community Edition (CE) capability is a full featured, but limits the database to one Storage Manager (SM) and three Transaction Engine (TE) processes. The Community Edition is free of charge and allows you to self-evaluate NuoDB at your own pace. The NuoDB Community Edition (CE) will allow first time users to experience all the benefits and value points of NuoDB including: 
@@ -311,27 +311,35 @@ For more information on how to run SQL, see [Using NuoDB SQL Command Line](http:
 
 ## Launch a Sample SQL Workload
 
-The NuoDB Operator includes a sample SQL application that will allow you to get started quickly running SQL statements against your NuoDB database. The sample workload uses YCSB (the Yahoo Cloud Servicing Benchmark). The cr.yaml includes YCSB parameters that will allow you to configure the SQL workload to your preferences.
+The NuoDB Operator includes a sample SQL application that will allow you to get started quickly running SQL statements against your NuoDB database. The sample workload uses YCSB (the Yahoo Cloud Servicing Benchmark). The YCSB custom resource yaml file includes YCSB parameters that will allow you to configure the SQL workload to your preferences.
 
 To start a SQL Workload (if your `nuodb-ycsbwl-cr.yaml` wasn't configured to start one by default) locate the ycsb Replication Controller in your Kubernetes dashboard and scale it to your desired number of pods to create your desired SQL application workload. Once the YCSB application is running the resulting SQL workload will be viewable from the NuoDB Insights visual monitoring WebUI.
+
+Optionally, to scale out or in your YCSB sample application to generate more or less SQL statements/sec, from the command line, run
+```
+kubectl edit nuodbycsbwl
+```
+Edit the parameter value for `ycsbWorkloadCount`to your desired number of pods and save the file. Kubernetes will immediately start to scale the YCSB pods to your desired amount.
 
 ## NuoDB Features and Benefits Evaluation Steps
 
 Once your NuoDB database and Insights visual monitor are running, here are a few steps to try out to quickly realize the benefits of running a NuoDB SQL database
 
-* Demonstrate Transactional Scale-out
+* **Demonstrate Transactional Scale-out**
 
-    To easily scale out your NuoDB Transaction Engines (TEs) to meet an increased SQL application workload, from the CLI, edit the teCount value by running,
+To easily scale out your NuoDB Transaction Engines (TEs) to meet an increased SQL application workload, from the commmand line, run,
+```    
+kubectl edit nuodb
+```    
+Edit the parameter value for `teCount` to your desired number of pods and save the file. Kubernetes will immediately start to scale the NuoDB Transaction Engine (TE) pods to your desired amount.
 
-    `kubectl edit nuodbs.nuodb.com`
+Using **NuoDB Insights**, monitor the SQL application during the time of increased application workload and the scale-out of TEs and observe the increase in transactional throughput, Transactions Per Second (TPS) 
     
-    Using NuoDB Insights, monitor the SQL application during the time of increased application workload and the scale-out of TEs and observe the increase in transactional throughput, Transactions Per Second (TPS) 
-    
-* Demonstrate Continuous Availability
+* **Demonstrate Continuous Availability**
 
-    Deploy your NuoDB system with three NuoDB Admins and three Transaction Engines (TEs). Using either your Kubernetes dashboard or the `kubectl delete pod` CLI command, forcibly delete either a NuoDB Admin or a TE pod. **Note:** when using the Community Edition, only 1 Storage Manager (SM) is availabe. 
+Deploy your NuoDB system with three NuoDB Admins and three Transaction Engines (TEs). Using either your Kubernetes dashboard or the `kubectl delete pod` CLI command, forcibly delete either a NuoDB Admin or a TE pod. **Note:** when using the Community Edition, only 1 Storage Manager (SM) is available. 
     
-    Using NuoDB Insights, monitor the SQL application during the time of the forced pod deletes and observe that SQL application availability continues unimpeded while the Kubernetes system and NuoDB recovery from failure events in seconds.
+Using **NuoDB Insights**, monitor the SQL application during the time of the forced pod deletes and observe that SQL application availability continues unimpeded while the Kubernetes system and NuoDB recovery from failure events in seconds.
 
 ## Delete the NuoDB Database and Operator
 
