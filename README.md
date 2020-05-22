@@ -6,7 +6,9 @@
 
 A Kubernetes Operator that automates the installation, provisioning, and management of deploying the NuoDB database in Kubernetes. The NuoDB Kubernetes Operator will deploy the NuoDB Community Edition (CE) database on Kubernetes distributions running **v1.14 or v1.15** on the following cloud provider platforms:
 
-<img src="logo-images/aws-cloud.png" width="120" height="100" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="90" height="65" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/google-cloud.png" width="110" height="110" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="190" height="100" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/red-hat-openshift.png" width="150" height="90" />
+<p align="center"> Run NuoDB Where You Want, When You Want. </p>
+
+<img src="logo-images/aws-cloud.png" width="110" height="90" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="85" height="55" />  &nbsp;&nbsp;&nbsp; <img src="logo-images/google-cloud.png" width="100" height="100" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="170" height="90" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/red-hat-openshift.png" width="135" height="80" />   &nbsp;&nbsp;&nbsp;  <img src="logo-images/docker-desktop-kubernetes.png" width="150" height="90" />
 
 **NOTE:** The NuoDB Operator is ideal for development, test and for product evaluation purposes in single cluster Kubernetes environments. **The NuoDB Operator is not available for production use.** To use NuoDB in Kubernetes production deployments, please refer to the [NuoDB Helm Charts](https://github.com/nuodb/nuodb-helm-charts) github repository . The NuoDB Helm Charts are production ready and fully support day-2 operational tasks such as backup and recovery, rolling upgrade, and can also be deployed in a Multi-cluster / Multi-cloud environments. 
 
@@ -105,9 +107,9 @@ Using the GCP Marketplace, visit the [NuoDB Operator](https://console.cloud.goog
 5. Click the `Deploy` button.
 Your NuoDB Operator will deploy in several minutes. Use the GCP Kubernetes Engine Web UI "Workloads" selection to monitor progress.
 
-<img src="logo-images/aws-cloud.png" width="120" height="100" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="90" height="65" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="190" height="100" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/kubernetes.png" width="65" height="65" />  
+<img src="logo-images/aws-cloud.png" width="120" height="100" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="90" height="65" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="190" height="100" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/kubernetes.png" width="65" height="65" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/docker-desktop-kubernetes.png" width="150" height="90" />
 
-### Install the NuoDB Operator on Amazon EKS, Azure AKS, Google Anthos GKE, and Open Source Kubernetes
+### Install the NuoDB Operator on Amazon EKS, Azure AKS, Google Anthos GKE, Open Source Kubernetes, and Docker Desktop Kubernetes
 
 #### Install the Operator Lifecycle Manager (OLM)
 ```
@@ -135,17 +137,16 @@ kubectl create -f nuodb-operator/deploy/crds/nuodb_v2alpha1_nuodbycsbwl_crd.yaml
 # create a local copy of the nuodb-csv.yaml file
 sed "s/placeholder/$OPERATOR_NAMESPACE/" nuodb-operator/deploy/olm-catalog/nuodb-operator/$NUODB_OPERATOR_VERSION/nuodb-operator.v$NUODB_OPERATOR_VERSION.clusterserviceversion.yaml > nuodb-csv.yaml
 
-# You may pull the NuoDB Operator from quay.io which is the default. Optionally, to replace quay.io as the default location to pull the NuoDB Operator image, follow these examples:
-
-   # Create a new nuodb-csv.yaml flie that pulls from the Red Hat Container Catalog, run
-   #   sed "s/quay.io/registry.connect.redhat.com/" nuodb-csv.yaml > nuodb-csv-rhcc.yaml
-
-   # Create a new nuodb-csv.yaml file that pulls from the Google Marketplace, run
-   #   sed "s/quay.io/marketplace.gcr.io/"          nuodb-csv.yaml > nuodb-csv-gcp.yaml
-
-   # To pull from the AWS Marketplace, make a copy of nuodb-csv.yaml and name it nuodb-csv-aws.yaml.
-   # Replace in the nuodb-csv-aws.yaml file the two image references with the following image pull value:
-   # 117940112483.dkr.ecr.us-east-1.amazonaws.com/d893f8e5-fe12-4e43-b792-8cb98ffc11c0/cg-1228790192/quay.io/nuodb/nuodb-operator:2.0.3-2-latest
+# Optionally, you may pull the NuoDB Operator image from quay.io (the default)
+# or other available locations by following these examples:
+   # Red Hat Ecosystem Catalog, run
+   #    sed "s/quay.io/registry.connect.redhat.com/" nuodb-csv.yaml > nuodb-csv-rhcc.yaml
+   # Google Cloud Platform Marketplace, run
+   #    sed "s/quay.io/marketplace.gcr.io/" nuodb-csv.yaml > nuodb-csv-gcp.yaml
+   # AWS Marketplace, run
+   #    cp nuodb-csv.yaml nuodb-csv-aws.yaml
+   #    Edit the file and replace the two image references with the following value:
+   #    117940112483.dkr.ecr.us-east-1.amazonaws.com/d893f8e5-fe12-4e43-b792-8cb98ffc11c0/cg-1228790192/quay.io/nuodb/nuodb-operator:2.0.3-2-latest
 
 # If appliable, copy your customized nuodb-csv-xxx.yaml file to nuodb-csv.yaml and run,
 kubectl create -n $OPERATOR_NAMESPACE -f nuodb-csv.yaml
@@ -209,6 +210,18 @@ spec:
 We recommend replacing the database password `dbPassword` value <changeMe> with one of your choice. 
 
 _**NOTE:** If your Kubernetes cluster has less than three worker nodes (four are recommended) then modify your `adminCount` value to equal the number of worker nodes in your cluster. This will deploy one NuoDB Admin process per worker node._ 
+
+_**NOTE:** To run on **MacOS Docker Desktop Kubernetes** -- which is useful for testing basic functionality and not performance -- size down the default NuoDB (TE) and (SM) CPU and MEMORY usage to fit the deployment on a single host. In this configuration, the NuoDB Insights monitoring tool will take about 5 minutes to start. We also recommend configuring Docker Desktop (Preferences -> Resources Tab) CPU count to 4 and Memory to 6 GB of RAM in order to run NuoDB with the ycsb sample SQL application. For NuoDB CPU and MEMORY adjustments, see the additional sample nuodb_v2alpha1_nuodb_cr.yaml recommendations below for admin count, CPU, MEMORY, and required StorageClass setting._
+
+```
+  adminCount: 1
+  adminStorageClass: hostpath
+  smMemory: 300Mi
+  smCpu: 300m
+  smStorageClass: hostpath
+  teMemory: 300Mi
+  teCpu: 300m
+```
 
 #### nuodb_v2alpha1_nuodbinsightsserver_cr.yaml
 

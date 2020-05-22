@@ -8,7 +8,6 @@ kubectl delete -n $NUODB_OPERATOR_NAMESPACE configmap nuodb-lic-configmap
 
 # delete cluster-admin permissions from the nuodb-operator service account
 kubectl delete -f nuodb-operator/deploy/cluster-op-admin.yaml
-kubectl delete clusterrolebinding nuodb-op-admin
 
 kubectl delete pod/insights-client -n $NUODB_OPERATOR_NAMESPACE
 
