@@ -1,4 +1,4 @@
-<img src="https://www.nuodb.com/sites/all/themes/nuodb/logo.svg" width="200" height="200" />
+<img src="logo-images/nuodb.svg" width="200" height="200" /> 
 
 # The NuoDB Operator
 
@@ -64,7 +64,7 @@ Please review and perform the following steps to prepare your Kubernetes environ
 
 ## About NuoDB Insights Visual Monitor
 
-<img src="https://www.nuodb.com/sites/default/files/nuodb-insights.png" width="750" height="500" />
+<img src="logo-images/nuodb-insights.png" width="700" height="500" />
 
 Optionally deploy the NuoDB Insights visual monitoring tool **(recommended)**. NuoDB Insights is a powerful database monitoring tool that can greatly aid in visualizing database workload and resource consumption. For more information about the benefits of using NuoDB Insights please refer to the [NuoDB Insights](https://www.nuodb.com/product/insights) Webpage.
 
@@ -160,9 +160,9 @@ until $ROLLOUT_STATUS_CMD || [ $ATTEMPTS -eq 60 ]; do
 done
 ```
 
-#### Install the Kubernetes Web UI Dashboard when using AKS, EKS, and Open Source Kubernetes
+#### Install the Kubernetes Web UI Dashboard
 
-Follow the instruction in the Kubernetes [documentation](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard).
+Red Hat OpenShift, Google GKE and GKE/Anthos offer a built-in Web UI Kubernetes Dashboard and Workload Manager. For other Kubernetes distributions we recommend installing the open source Kubernetes Web UI Dashboard to easily manage and monitor your Kubernetes deployments. To install, follow the instruction in the Kubernetes [documentation](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard).
 
 ## Deploy the NuoDB Database
 
