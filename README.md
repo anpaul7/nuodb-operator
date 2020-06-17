@@ -236,12 +236,13 @@ spec:
 ```
 **NOTE:**  For parameters `adminStorageClass`, `smStorageClass`, and `storageClass` enter the Kubernetes storage class value you wish to use. For example, 
 
-| Public Cloud              | Kubernetes Storage Class    |
-|---------------------------|-----------------------------|
-| AWS                       | gp2                         |
-| GCP                       | standard                    |
-| AZURE                     | managed-premium             |
-| DOCKER DESKTOP KUBERNETES | hostpath                    |
+| Public Cloud  | Kubernetes Storage Class  |
+|---------------|---------------------------|
+| AWS           | gp2                       |
+| GCP           | standard                  |
+| AZURE         | managed-premium           |
+
+**NOTE:**  For Docker Desktop Kubernetes use the Docker Desktop Kubernetes provided storage class `hostpath`.
 
   
 | User Config'd       | Kubernetes Storage Class  |
