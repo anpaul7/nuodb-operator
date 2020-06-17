@@ -5,27 +5,38 @@ _**NOTE:** The instruction prerequisite steps on this page use the Kubernetes `k
 ## 1. Provision a Kubernetes cluster
 
 Create a Kubernetes cluster and connect to the cluster. 
-In our verification tests, we regularly verify the samples workloads outlined on this page using the following configuration:
+In our verification tests, we regularly run the NuoDB Operator using the sample workload provided (YCSB) on the following configuration:
+
+If using a cloud provider (AWS, GCP, or Azure) to provision your cluster:
 * 4 worker nodes, each with with 4 CPUs and 16 GB of RAM (e.g. AWS m5.xlarge instance type)
+
+For all clusters, including Docker Desktop Kubernetes clusters:
 * 5 GB disk for Admin pods
 * 20 GB disk for Storage Manager(SM) pods
 
-Please use this as a guideline for a minimal configuration when you create your cluster. To run larger SQL workloads using the included YCSB sample application, adjust node CPU and Memory upwards as required. To determine resources used, monitor your NuoDB database process resource consumption using the NuoDB Insights visual monitoring tool. 
+_**NOTE**_ When deploying NuoDB using Docker Desktop Kubernetes, configure Docker with at least 4 CPUs and 6 GB of Memory. To configure these settings, select from the Docker pull-down menu (Preferences --> Resources Tab).
 
-## 2. Create environment variables
-```
-export OPERATOR_NAMESPACE=nuodb
-export NUODB_OPERATOR_VERSION=2.0.3           --confirm you set the correction NuoDB Operator version here.
-```
+Please use these configurations as a guideline for a minimal configuration when you create your cluster. To run larger SQL workloads using the included YCSB sample application, adjust node CPU and Memory upwards as required. To determine resources used, monitor your NuoDB database process resource consumption using the NuoDB Insights visual monitoring tool. 
 
-## 3. Create the "nuodb" project/namespace
-
-`kubectl create namespace $OPERATOR_NAMESPACE`
-
-## 4. Download the latest NuoDB Operator release zip file from the [Releases](https://github.com/nuodb/nuodb-operator/releases) tab and unzip 
+## 2. Download the latest NuoDB Operator release zip file from the [Releases](https://github.com/nuodb/nuodb-operator/releases) tab and unzip 
 For example, in your home or working directory, run:
 
 `unzip nuodb-operator-<latest version>.zip`
+
+_**TIP:** This will create a `nuodb-operator-<version#>` directory. It will be helpful to rename the directory created to `nuodb-operator` which will allow you to run the provided sample NuoDB operator and database deployment scripts that reference the `nuodb-operator` directory._
+
+## 3. Create environment variables
+We recommend setting your `OPERATOR_NAMESPACE` environment variable to `nuodb`. This is the namespace you will install your NuoDB Operator and database. You can choose your own namespace name or use an existing namespace name if you prefer. Below, in our example, we use `nuodb` as the value for our Kubernetes namespace.
+```
+export OPERATOR_NAMESPACE=nuodb
+export NUODB_OPERATOR_VERSION=2.0.3     --confirm you set the correction NuoDB Operator version here.
+```
+
+_**NOTE**_ The NuoDB Operator version is the first three significant digits of your NuoDB Operator download zip file. For example, if downloading version 2.0.3.1, your NuoDB Operator Version environment variable should be set to 2.0.3.
+
+## 4. Create the Kubernetes Project / Namespace
+
+`kubectl create namespace $OPERATOR_NAMESPACE`
 
 # NuoDB Database Prerequisites
 
@@ -51,9 +62,11 @@ ip-10-0-184-233.ec2.internal   Ready    worker   15d   v1.15.11            nuodb
 ip-10-0-206-8.ec2.internal     Ready    worker   15d   v1.15.11            nuodb 
 ```
 
-## 6. Optionally Use Cluster Node Local Storage
+## 6. Optionally Use Cluster Node Local Storage (not required in most cases)
 
-NuoDB supports cloud platform storage (e.g. AWS EBS, GCP PD, Azure Disk, etc), 3rd-party CSI storage (e.g. Portworx, OpenEBS, Linbit, etc.), and the use of local storage via Hostpath. If planning to use any of these storage types, configure them prior to deploying your database. 
+NuoDB supports cloud platform storage (e.g. AWS EBS, GCP PD, Azure Disk, etc), 3rd-party CSI storage (e.g. Portworx, OpenEBS, Linbit, etc.), and the use of local storage via Hostpath. If planning to use any of these storage types, configure them prior to deploying your database. Any of these storage options are recommended and allows you to skip this section.
+
+The NuoDB Operator also supports using manually created `Cluster Node Local` using HOSTPATH storage which can be useful in on-premn Kubernetes environments not using 3rd-party CSI storage options.
 
 ### To Setup Cluster Node local storage (using HOSTPATH): 
 Configure the local storage permissions on each cluster node to enable hosting storage for either the NuoDB Admin or the Storage Manager (SM) pods.

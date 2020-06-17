@@ -4,12 +4,12 @@
 Run the following commands,
 ```
 # delete the nuodb CE nuodb.lic file
-kubectl delete -n $NUODB_OPERATOR_NAMESPACE configmap nuodb-lic-configmap
+kubectl delete -n $OPERATOR_NAMESPACE configmap nuodb-lic-configmap
 
 # delete cluster-admin permissions from the nuodb-operator service account
 kubectl delete -f nuodb-operator/deploy/cluster-op-admin.yaml
 
-kubectl delete pod/insights-client -n $NUODB_OPERATOR_NAMESPACE
+kubectl delete pod/insights-client -n $OPERATOR_NAMESPACE
 
 kubectl delete crd elasticsearches.elasticsearch.k8s.elastic.co &
 kubectl delete crd kibanas.kibana.k8s.elastic.co &
@@ -23,7 +23,7 @@ kubectl delete nuodb nuodb-db
 kubectl delete nuodbycsbwl nuodbycsbwl
 kubectl delete nuodbinsightsserver insightsserver &
 
-kubectl delete -n $NUODB_OPERATOR_NAMESPACE pvc --all
+kubectl delete -n $OPERATOR_NAMESPACE pvc --all
 ```
 Then run,
 
@@ -68,6 +68,6 @@ kubectl delete serviceaccount grafana-operator
 kubectl delete serviceaccount nuodb-operator
 
 kubectl delete -f nuodb-operator/deploy/cluster_role_binding.yaml
-kubectl delete -n $NUODB_OPERATOR_NAMESPACE -f nuodb-operator/deploy/cluster_role.yaml
-kubectl delete -n $NUODB_OPERATOR_NAMESPACE -f nuodb-operator/deploy/operatorGroup.yaml
+kubectl delete -n $OPERATOR_NAMESPACE -f nuodb-operator/deploy/cluster_role.yaml
+kubectl delete -n $OPERATOR_NAMESPACE -f nuodb-operator/deploy/operatorGroup.yaml
 ```

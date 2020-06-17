@@ -5,10 +5,10 @@ metadata:
 spec:
   dbAvailability: manual
   storageMode: ephemeral
-  insightsEnabled: true
-  adminCount: 1
+  insightsEnabled: false
+  adminCount: 3
   adminStorageSize: 5G
-  adminStorageClass: local-disk
+  adminStorageClass: hostpath
   dbName: test1
   dbUser: dba
   dbPassword: secret
@@ -16,7 +16,7 @@ spec:
   smCount: 1
   smCpu: 1
   smStorageSize: 20G
-  smStorageClass: local-disk
+  smStorageClass: hostpath
   engineOptions: ""
   teCount: 1
   teMemory: 2Gi
