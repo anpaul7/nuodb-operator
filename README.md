@@ -87,11 +87,7 @@ Your NuoDB Operator will deploy in several minutes. Use the GCP Kubernetes Engin
 3. On the "Subscription" page, select the option "A specific namespace on the cluster" and enter your project/namespace value.
 4. Select `Subscribe` to subscribe and install the NuoDB Operator.
 
-The following video provides a full walk-thru of how to deploy the NuoDB Operator and database in OpenShift 4.x. 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[NuoDB in OpenShift v4.x video](https://youtu.be/KYx_B_ykbtU)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**NOTE:** The same benefit areas demonstrated in this video can also be demonstrated in any NuoDB supported Kubernetes managed environment.
+This video [NuoDB in OpenShift v4.x video](https://youtu.be/KYx_B_ykbtU) provides a full walk-thru of how to deploy the NuoDB Operator and database in OpenShift 4.x. The same benefit areas demonstrated in this video can also be demonstrated in any NuoDB supported Kubernetes managed environment.
 
 ### >>> On Amazon EKS, Azure AKS, Google Anthos GKE, Open Source Kubernetes, or Docker Desktop Kubernetes
 
