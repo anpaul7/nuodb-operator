@@ -68,7 +68,7 @@ When using NuoDB Insights all performance information collected is privately sto
 
 ## Install the NuoDB Operator
 
-To install the NuoDB Operator into your Kubernetes cluster, follow the steps provided below for the appropriate Kubernetes Distribution you are using. 
+Follow the specfic instructions provided below for your **Kubernetes Distribution**.
 
 Please **complete** the NuoDB Operator [installation prerequisites steps](documentation/installation-prerequisites)
  before proceeding.
@@ -95,11 +95,11 @@ The following video provides a full walk-thru of how to deploy the NuoDB Operato
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**NOTE:** The same benefit areas demonstrated in this video can also be demonstrated in any NuoDB supported Kubernetes managed environment.
 
-### Install the NuoDB Operator on Amazon EKS, Azure AKS, Google Anthos GKE, Open Source Kubernetes, and Docker Desktop Kubernetes
+### Install the NuoDB Operator on Amazon EKS, Azure AKS, Google Anthos GKE, Open Source Kubernetes, or Docker Desktop Kubernetes
 
 <img src="logo-images/aws-cloud.png" width="60" height="45" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="60" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="80" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/kubernetes.png" width="40" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/docker-desktop-kubernetes.svg" width="140" height="90" />
 
-First install the Operator Lifecycle Manager (OLM) v12.0. We have also successfully tested with v11.0 and v13.0 if you prefer.
+First, install the Operator Lifecycle Manager (OLM) v12.0. We have also successfully tested with v11.0 and v13.0 if you prefer.
 ```
 kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.12.0/crds.yaml
 kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.12.0/olm.yaml
