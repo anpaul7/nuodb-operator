@@ -77,8 +77,7 @@ Please **complete** the NuoDB Operator [installation prerequisites steps](docume
 1. Select a GCP Project. 
 2. Either create a GKE cluster or choose an existing one from the list
 3. Create a namespace called `nuodb` in which to install the NuoDB Operator
-4. Take defaults for `App instance name` and `Cluster Admin Service Account` and click the `Deploy` button.
-Your NuoDB Operator will deploy in several minutes. Use the GCP Kubernetes Engine Web UI "Workloads" selection to monitor progress.
+4. Take defaults for `App instance name` and `Cluster Admin Service Account` and click the `Deploy` button. Use the GCP Kubernetes Engine Web UI "Workloads" tab to monitor progress.
 
 ### >>> On Red Hat OpenShift v4.x
 <img src="logo-images/red-hat-openshift.png" width="60" height="35" /> In OpenShift 4.x, the NuoDB Operator is available to install directly from the OpenShift OperatorHub, an integrated service catalog, accessible from within the OpenShift 4 Web UI. The steps are outlined here:
