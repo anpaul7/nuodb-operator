@@ -72,14 +72,14 @@ Follow the specfic instructions provided below for your **Kubernetes Distributio
 Please **complete** the NuoDB Operator [installation prerequisites steps](documentation/installation-prerequisites)
  before proceeding.
 
-### >>> On Google Cloud GKE Kubernetes
+### On Google GKE 
 <img src="logo-images/google-cloud.png" width="40" height="40" /> Using the GCP Marketplace, visit the [NuoDB Operator](https://console.cloud.google.com/marketplace/details/nuodb/nuodb-database-operator?q=nuodb) published Operator page. Click the `Configure` button and follow the on-screen instructions to deploy the NuoDB Operator. The steps are outlined here:
 1. Select a GCP Project. 
 2. Either create a GKE cluster or choose an existing one from the list
 3. Create a namespace called `nuodb` in which to install the NuoDB Operator
 4. Take defaults for `App instance name` and `Cluster Admin Service Account` and click the `Deploy` button. Use the GCP Kubernetes Engine Web UI "Workloads" tab to monitor progress.
 
-### >>> On Red Hat OpenShift v4.x
+### On Red Hat OpenShift 4
 <img src="logo-images/red-hat-openshift.png" width="60" height="35" /> In OpenShift 4.x, the NuoDB Operator is available to install directly from the OpenShift OperatorHub, an integrated service catalog, accessible from within the OpenShift 4 Web UI. The steps are outlined here:
 1. Select `OperatorHub` under the `Catalog` section in the OCP 4 left toolbar and navigate to the NuoDB Application tile.
 2. Click the tile and on the NuoDB Operator page, click the `Install` button.
@@ -88,7 +88,7 @@ Please **complete** the NuoDB Operator [installation prerequisites steps](docume
 
 This video [NuoDB in OpenShift v4.x video](https://youtu.be/KYx_B_ykbtU) provides a full walk-thru of how to deploy the NuoDB in OpenShift 4.x. The benefit areas demonstrated in this video also apply when running NuoDB in other supported Kubernetes environments.
 
-### >>> On Amazon EKS, Azure AKS, Google Anthos GKE, Open Source Kubernetes, or Docker Desktop Kubernetes
+### On Amazon EKS, Azure AKS, Google Anthos GKE, Open Source Kubernetes, or Docker Desktop Kubernetes
 <img src="logo-images/aws-cloud.png" width="60" height="45" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="60" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="80" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/kubernetes.png" width="40" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/docker-desktop-kubernetes.svg" width="140" height="90" />
 
 First, install the Operator Lifecycle Manager (OLM) v12.0. We have also successfully tested with v11.0 and v13.0 if you prefer.
