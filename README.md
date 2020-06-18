@@ -84,8 +84,7 @@ Your NuoDB Operator will deploy in several minutes. Use the GCP Kubernetes Engin
 <img src="logo-images/red-hat-openshift.png" width="50" height="30" /> In OpenShift 4.x, the NuoDB Operator is available to install directly from the OpenShift OperatorHub, an integrated service catalog, accessible from within the OpenShift 4 Web UI which creates a seamless - single click experience - that allows users to install the NuoDB Operator from catalog-to-cluster in seconds. The steps are outlined here:
 1. Select `OperatorHub` under the `Catalog` section in the OCP 4 left toolbar and navigate to the NuoDB Application tile.
 2. Click the tile and on the NuoDB Operator page, click the `Install` button.
-3. On the "Create Operator Subscription" page, select the option "A specific namespace on the cluster"
-   and enter the project/namespace to install the NuoDB Operator.
+3. On the "Subscription" page, select the option "A specific namespace on the cluster" and enter your project/namespace value.
 4. Select `Subscribe` to subscribe and install the NuoDB Operator.
 
 The following video provides a full walk-thru of how to deploy the NuoDB Operator and database in OpenShift 4.x. 
