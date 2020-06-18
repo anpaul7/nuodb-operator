@@ -41,6 +41,8 @@ ssh -i ~/.ssh/cluster.pem core@ip-n-n-n-n.ec2.internal  'rm -rf /mnt/local-stora
 
 kubectl delete -f local-disk-class.yaml
 ```
+**NOTE:** If planning to restart another NuoDB database after deleting one, please wait a few minutes to ensure all Kubernetes objects have been terminated and removed. You can check by running `kubectl get all` to ensure only your NuoDB Operator is running before initialing a new database deployment.
+
 
 ## Delete the NuoDB Operator
 
