@@ -17,6 +17,7 @@ kubectl delete crd grafanadatasources.integreatly.org &
 kubectl delete crd grafanas.integreatly.org &
 
 kubectl delete statefulset insights-server-release-logstash 
+kubectl delete service insights-server-release-logstash 
 kubectl delete deployment grafana-operator
 
 kubectl delete nuodb nuodb-db
