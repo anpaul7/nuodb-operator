@@ -72,7 +72,7 @@ Follow the specfic instructions provided below for your **Kubernetes Distributio
 Please **complete** the NuoDB Operator [installation prerequisites steps](documentation/installation-prerequisites)
  before proceeding.
 
-### Install the NuoDB Operator on Google Cloud GKE Kubernetes
+### >>> On Google Cloud GKE Kubernetes
 <img src="logo-images/google-cloud.png" width="40" height="40" /> Using the GCP Marketplace, visit the [NuoDB Operator](https://console.cloud.google.com/marketplace/details/nuodb/nuodb-database-operator?q=nuodb) published Operator page. Click the `Configure` button and follow the on-screen instructions to deploy the NuoDB Operator. The steps are outlined here:
 1. Select a GCP Project. 
 2. Either create a GKE cluster or choose an existing one from the list
@@ -80,8 +80,8 @@ Please **complete** the NuoDB Operator [installation prerequisites steps](docume
 4. Take defaults for `App instance name` and `Cluster Admin Service Account` and click the `Deploy` button.
 Your NuoDB Operator will deploy in several minutes. Use the GCP Kubernetes Engine Web UI "Workloads" selection to monitor progress.
 
-### Install the NuoDB Operator on Red Hat OpenShift v4.x
-<img src="logo-images/red-hat-openshift.png" width="50" height="30" /> In OpenShift 4.x, the NuoDB Operator is available to install directly from the OpenShift OperatorHub, an integrated service catalog, accessible from within the OpenShift 4 Web UI which creates a seamless - single click experience - that allows users to install the NuoDB Operator from catalog-to-cluster in seconds. The steps are outlined here:
+### >>> On Red Hat OpenShift v4.x
+<img src="logo-images/red-hat-openshift.png" width="50" height="30" /> In OpenShift 4.x, the NuoDB Operator is available to install directly from the OpenShift OperatorHub, an integrated service catalog, accessible from within the OpenShift 4 Web UI. The steps are outlined here:
 1. Select `OperatorHub` under the `Catalog` section in the OCP 4 left toolbar and navigate to the NuoDB Application tile.
 2. Click the tile and on the NuoDB Operator page, click the `Install` button.
 3. On the "Subscription" page, select the option "A specific namespace on the cluster" and enter your project/namespace value.
@@ -93,7 +93,7 @@ The following video provides a full walk-thru of how to deploy the NuoDB Operato
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**NOTE:** The same benefit areas demonstrated in this video can also be demonstrated in any NuoDB supported Kubernetes managed environment.
 
-### Install the NuoDB Operator on Amazon EKS, Azure AKS, Google Anthos GKE, Open Source Kubernetes, or Docker Desktop Kubernetes
+### >>> On Amazon EKS, Azure AKS, Google Anthos GKE, Open Source Kubernetes, or Docker Desktop Kubernetes
 
 <img src="logo-images/aws-cloud.png" width="60" height="45" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="60" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="80" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/kubernetes.png" width="40" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/docker-desktop-kubernetes.svg" width="140" height="90" />
 
