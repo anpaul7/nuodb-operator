@@ -86,7 +86,7 @@ Please **complete** the NuoDB Operator [installation prerequisites steps](docume
 3. On the "Subscription" page, select the option "A specific namespace on the cluster" and enter your project/namespace value.
 4. Select `Subscribe` to subscribe and install the NuoDB Operator.
 
-This video [NuoDB in OpenShift v4.x video](https://youtu.be/KYx_B_ykbtU) provides a full walk-thru of how to deploy the NuoDB Operator and database in OpenShift 4.x. The same benefit areas demonstrated in this video can also be demonstrated in any NuoDB supported Kubernetes managed environment.
+This video [NuoDB in OpenShift v4.x video](https://youtu.be/KYx_B_ykbtU) provides a full walk-thru of how to deploy the NuoDB Operator and database in OpenShift 4.x. The same benefit areas demonstrated in this video also apply when running NuoDB in any NuoDB supported Kubernetes managed environment.
 
 ### >>> On Amazon EKS, Azure AKS, Google Anthos GKE, Open Source Kubernetes, or Docker Desktop Kubernetes
 <img src="logo-images/aws-cloud.png" width="60" height="45" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="60" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="80" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/kubernetes.png" width="40" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/docker-desktop-kubernetes.svg" width="140" height="90" />
