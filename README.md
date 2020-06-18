@@ -4,7 +4,7 @@
 
 A Kubernetes Operator that automates the installation, provisioning, and management of deploying the NuoDB database in Kubernetes. The NuoDB Kubernetes Operator will deploy the NuoDB Community Edition (CE) database on Kubernetes distributions running **v1.14 or v1.15** on the following cloud provider platforms:
 
-<p align="center"> Run NuoDB Where You Want, When You Want. </p>
+<p align="center"> Run NuoDB where you want, when you want, and how you want ... </p>
 
 <img src="logo-images/aws-cloud.png" width="110" height="90" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="85" height="55" />  &nbsp;&nbsp;&nbsp; <img src="logo-images/google-cloud.png" width="100" height="100" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="170" height="90" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/red-hat-openshift.png" width="135" height="80" />   &nbsp;&nbsp;&nbsp;  <img src="logo-images/docker-desktop-kubernetes.svg" width="170" height="120" />
 
