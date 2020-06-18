@@ -69,7 +69,6 @@ When using NuoDB Insights all performance information collected is privately sto
 ## Install the NuoDB Operator
 
 Follow the specfic instructions provided below for your **Kubernetes Distribution**.
-
 Please **complete** the NuoDB Operator [installation prerequisites steps](documentation/installation-prerequisites)
  before proceeding.
 
