@@ -14,11 +14,13 @@ For all clusters, including Docker Desktop Kubernetes clusters:
 * 5 GB disk for Admin pods
 * 20 GB disk for Storage Manager(SM) pods
 
-**NOTE** When deploying NuoDB using Docker Desktop Kubernetes:
-1. You may already have Docker Desktop installed wtih a Kubernetes version greater than v1.15. The NuoDB Operator requires Kubernetes v1.14 or v1.15. The latest Kubernetes 1.15 version in Docker Desktop is available in Docker Desktop v2.2.0.5 located [here](https://docs.docker.com/docker-for-windows/release-notes/#docker-desktop-community-2205). 
-2. Configure Docker with at least 4 CPUs and 6 GB of Memory. To configure these settings, select from the Docker pull-down menu (Preferences --> Resources Tab). 
-
 Please use these configurations as a guideline for a minimal configuration when you create your cluster. To run larger SQL workloads using the included YCSB sample application, adjust node CPU and Memory upwards as required. To determine resources used, monitor your NuoDB database process resource consumption using the NuoDB Insights visual monitoring tool. 
+
+**NOTE:** When deploying NuoDB in **Docker Desktop Kubernetes**:
+1. You may already have Docker Desktop installed with a Kubernetes version greater than v1.15. 
+The NuoDB Operator requires Kubernetes v1.14 or v1.15. The latest Kubernetes 1.15 version in Docker Desktop is available in Docker Desktop v2.2.0.5 located [here](https://docs.docker.com/docker-for-windows/release-notes/#docker-desktop-community-2205). 
+2. Configure Docker with at least 4 CPUs and 6 GB of Memory. 
+To configure these settings, select from the Docker pull-down menu (Preferences --> Resources Tab). 
 
 ## 2. Download the latest NuoDB Operator release zip file from the [Releases](https://github.com/nuodb/nuodb-operator/releases) tab and unzip 
 For example, in your home or working directory, run:
