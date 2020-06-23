@@ -4,9 +4,9 @@
 
 A Kubernetes Operator that automates the installation, provisioning, and management of deploying the NuoDB database in Kubernetes. The NuoDB Kubernetes Operator will deploy the NuoDB Community Edition (CE) database on Kubernetes distributions running **v1.14 or v1.15** on the following cloud provider platforms:
 
-<p align="center"> Run NuoDB Where You Want, When You Want. </p>
+<p align="center"> Run NuoDB where you want, when you want, and how you want ... </p>
 
-<img src="logo-images/aws-cloud.png" width="110" height="90" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="85" height="55" />  &nbsp;&nbsp;&nbsp; <img src="logo-images/google-cloud.png" width="100" height="100" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="170" height="90" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/red-hat-openshift.png" width="135" height="80" />   &nbsp;&nbsp;&nbsp;  <img src="logo-images/docker-desktop-kubernetes.png" width="150" height="90" />
+<img src="logo-images/aws-cloud.png" width="110" height="90" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="85" height="55" />  &nbsp;&nbsp;&nbsp; <img src="logo-images/google-cloud.png" width="100" height="100" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="170" height="90" />  &nbsp;&nbsp;&nbsp;  <img src="logo-images/red-hat-openshift.png" width="135" height="80" />   &nbsp;&nbsp;&nbsp;  <img src="logo-images/docker-desktop-kubernetes.svg" width="170" height="120" />
 
 **NOTE:** The NuoDB Operator is ideal for development, test and for product evaluation purposes in single cluster Kubernetes environments. **The NuoDB Operator is not available for production use.** To use NuoDB in Kubernetes production deployments, please refer to the [NuoDB Helm Charts](https://github.com/nuodb/nuodb-helm-charts) github repository . The NuoDB Helm Charts are production ready and fully support day-2 operational tasks such as backup and recovery, rolling upgrade, and can also be deployed in Multi-cluster / Multi-cloud environments. 
 
@@ -68,48 +68,30 @@ When using NuoDB Insights all performance information collected is privately sto
 
 ## Install the NuoDB Operator
 
-To install the NuoDB Operator into your Kubernetes cluster, follow the steps provided below for the appropriate Kubernetes Distribution you are using. 
-
+Follow the specfic instructions provided below for your **Kubernetes Distribution**.
 Please **complete** the NuoDB Operator [installation prerequisites steps](documentation/installation-prerequisites)
  before proceeding.
 
-<img src="logo-images/red-hat-openshift.png" width="150" height="90" />
-
-### Install the NuoDB Operator on Red Hat OpenShift v4.x
-
-In OpenShift 4.x, the NuoDB Operator is available to install directly from the OpenShift OperatorHub, an integrated service catalog, accessible from within the OpenShift 4 Web UI which creates a seamless - single click experience - that allows users to install the NuoDB Operator from catalog-to-cluster in seconds.
-
-Steps:
-1. Select `OperatorHub` under the `Catalog` section in the OCP 4 left toolbar.
-2. Select the `Database` filter, navigate to the NuoDB Application tile and click the tile.
-3. On the NuoDB Operator page, click the `Install` button.
-4. On the "Create Operator Subscription" page, select the option "A specific namespace on the cluster"
-   and enter the project/namespace to install the NuoDB Operator.
-5. Select `Subscribe` to subscribe and install the NuoDB Operator.
-
-The following video provides a full walk-thru of how to deploy the NuoDB Operator and database in OpenShift 4.x. 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[NuoDB in OpenShift v4.x video](https://youtu.be/KYx_B_ykbtU)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**NOTE:** The same benefit areas demonstrated in this video can also be demonstrated in any NuoDB supported Kubernetes managed environment.
-
-<img src="logo-images/google-cloud.png" width="110" height="110" />  
-
-### Install the NuoDB Operator on Google Cloud GKE Kubernetes
-
-Using the GCP Marketplace, visit the [NuoDB Operator](https://console.cloud.google.com/marketplace/details/nuodb/nuodb-database-operator?q=nuodb) published Operator page. Click the `Configure` button and follow the on-screen instructions to deploy the NuoDB Operator. The steps are outlined here:
+### On Google GKE 
+<img src="logo-images/google-cloud.png" width="40" height="40" /> Using the GCP Marketplace, visit the [NuoDB Operator](https://console.cloud.google.com/marketplace/details/nuodb/nuodb-database-operator?q=nuodb) published Operator page. Click the `Configure` button and follow the on-screen instructions to deploy the NuoDB Operator. The steps are outlined here:
 1. Select a GCP Project. 
 2. Either create a GKE cluster or choose an existing one from the list
 3. Create a namespace called `nuodb` in which to install the NuoDB Operator
-4. Take defaults for `App instance name` and `Cluster Admin Service Account` 
-5. Click the `Deploy` button.
-Your NuoDB Operator will deploy in several minutes. Use the GCP Kubernetes Engine Web UI "Workloads" selection to monitor progress.
+4. Take defaults for `App instance name` and `Cluster Admin Service Account` and click the `Deploy` button. Use the GCP Kubernetes Engine Web UI "Workloads" tab to monitor progress.
 
-<img src="logo-images/aws-cloud.png" width="120" height="100" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="90" height="65" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="190" height="100" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/kubernetes.png" width="65" height="65" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/docker-desktop-kubernetes.png" width="150" height="90" />
+### On Red Hat OpenShift 4
+<img src="logo-images/red-hat-openshift.png" width="60" height="35" /> In OpenShift 4.x, the NuoDB Operator is available to install directly from the OpenShift OperatorHub, an integrated service catalog, accessible from within the OpenShift 4 Web UI. The steps are outlined here:
+1. Select `OperatorHub` under the `Catalog` section in the OCP 4 left toolbar and navigate to the NuoDB Application tile.
+2. Click the tile and on the NuoDB Operator page, click the `Install` button which displays the "Subscription" page.
+3. Select the option "A specific namespace on the cluster" and enter a namespace to install NuoDB.
+4. Select `Subscribe` to subscribe and install the NuoDB Operator.
 
-### Install the NuoDB Operator on Amazon EKS, Azure AKS, Google Anthos GKE, Open Source Kubernetes, and Docker Desktop Kubernetes
+This video [NuoDB in OpenShift v4.x video](https://youtu.be/KYx_B_ykbtU) provides a full walk-thru of how to deploy the NuoDB in OpenShift 4.x. The benefit areas demonstrated in this video also apply when running NuoDB in other supported Kubernetes environments.
 
-#### Install the Operator Lifecycle Manager (OLM)
+### On Amazon EKS, Azure AKS, Google Anthos GKE, or Open Source or Docker Desktop Kubernetes
+<img src="logo-images/aws-cloud.png" width="60" height="45" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/azure-cloud.png" width="60" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/google-anthos-cloud.png" width="80" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/kubernetes.png" width="40" height="40" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="logo-images/docker-desktop-kubernetes.svg" width="140" height="90" />
+
+First, install the Operator Lifecycle Manager (OLM) v12.0. We have also successfully tested with v11.0 and v13.0 if you prefer.
 ```
 kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.12.0/crds.yaml
 kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.12.0/olm.yaml
@@ -236,12 +218,13 @@ spec:
 ```
 **NOTE:**  For parameters `adminStorageClass`, `smStorageClass`, and `storageClass` enter the Kubernetes storage class value you wish to use. For example, 
 
-| Public Cloud              | Kubernetes Storage Class    |
-|---------------------------|-----------------------------|
-| AWS                       | gp2                         |
-| GCP                       | standard                    |
-| AZURE                     | managed-premium             |
-| DOCKER DESKTOP KUBERNETES | hostpath                    |
+| Public Cloud  | Kubernetes Storage Class  |
+|---------------|---------------------------|
+| AWS           | gp2                       |
+| GCP           | standard                  |
+| AZURE         | managed-premium           |
+
+**NOTE:**  For Docker Desktop Kubernetes use the Docker Desktop Kubernetes provided storage class `hostpath`.
 
   
 | User Config'd       | Kubernetes Storage Class  |
@@ -305,7 +288,7 @@ echo ""
 echo "For Google GKE, go to URL:"
 echo "   http://$(kubectl get ingress grafana-ingress --output=jsonpath={.status.loadBalancer.ingress[0].ip})/d/000000002/system-overview?orgId=1&refresh=10s"
 echo ""
-echo "For AKS, EKS or open source K8S,"
+echo "For Amazon EKS, Azure AKS, open source K8S, or Docker Desktop Kubernetes:"
 echo "Run the following command in a terminal window suitable for logging output commands:"
 echo "   $ kubectl port-forward service/grafana-service 3000 &"
 echo "Go to URL:"

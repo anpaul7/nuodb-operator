@@ -17,9 +17,12 @@ kubectl delete crd grafanadatasources.integreatly.org &
 kubectl delete crd grafanas.integreatly.org &
 
 kubectl delete statefulset insights-server-release-logstash 
+kubectl delete service insights-server-release-logstash 
 kubectl delete deployment grafana-operator
 
+# delete statement for a database named `db`. Adjust if your db is named differently.
 kubectl delete nuodb nuodb-db
+
 kubectl delete nuodbycsbwl nuodbycsbwl
 kubectl delete nuodbinsightsserver insightsserver &
 
@@ -33,14 +36,15 @@ and remove the below line using the vi editor and save the file.
 
 ` - ECK.finalizers.nuodbinsightsserver.nuodb.com`
 
-
 If the local-disk storage class was used, then delete the NuoDB Storage Manager(SM) disk storage and storage class
 ```
 ssh -i ~/Documents/cluster.pem $JUMP_HOST
 ssh -i ~/.ssh/cluster.pem core@ip-n-n-n-n.ec2.internal  'rm -rf /mnt/local-storage/disk0/*'
 
-kubectl delete -f local-disk-class.yaml
+kubectl delete -f nuodb-operator/build/etc/charts/nuodb-helm/local-disk-class.yaml
 ```
+**NOTE:** If planning to restart another NuoDB database after deleting one, please wait a few minutes to ensure all Kubernetes objects have been terminated and removed. You can check by running `kubectl get all` to ensure only your NuoDB Operator is running before initialing a new database deployment.
+
 
 ## Delete the NuoDB Operator
 
